@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Form</title>
+    <link rel="stylesheet" href="C:\Users\yashw\OneDrive\Desktop\WDD\form1.css">
+    <style>
+       aside {
+      width: 30%;
+      padding-left: 15px;
+      margin-left: 15px;
+      float: right;
+      font-style: italic;
+      background-color: rgb(38, 235, 16);
+      }
+    </style>
+    
+  </head>
+  <body>
+      
+    <nav id="navBar" style="background-color: aqua;">
+        <a href="94818yashwanth@gmail.com">Gmail</a> |
+        <a href="https://www.linkedin.com/in/yashwanth-ks-96024a200/">LinkedIn</a> |
+        <a href="https://github.com/yashwanth582">Github</a> |
+        <a href="pinterest.com">Pinterest</a>
+    </nav>
+      <br>
+    <form id="form" style="color: rgb(2, 4, 4); onsubmit = "return formValidate()">
+        <div id="formTag"> 
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Email"><br><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Password"><br><br>
+
+      <label for="telephone">Telephone:</label>
+      <input type="tel" id="telephone" name="telephone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="123-555-777"><br><br>
+      
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date"><br><br>
+      
+      <label for="number">Number:</label>
+      <input type="number" id="number" name="number"><br><br>
+      
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+      <label for="vehicle1"> I am Human</label><br>
+      <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+      <label for="vehicle2"> I have no active baglogs</label><br>
+      <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+      <label for="vehicle3"> I have 7 cgpa</label>
+      <br>
+      <input type="submit" value="Submit" class="button">
+    </div>
+    </form>
+    <script src="./formVal.js"></script>
+    <figure>
+      <img src="https://media.tenor.com/y7BIMKFLe_IAAAAM/recess-class.gif" alt="image">
+      <figcaption>ClassRoom</figcaption>
+    </figure>
+    <!-- <img src="https://media.tenor.com/y7BIMKFLe_IAAAAM/recess-class.gif" alt="classRoom" id="img"> -->
+     <H6>class Room</H6>
+     <label for="lis">Choose your section from the list:</label>
+    <input list="browsers" name="browser" id="browser">
+
+<datalist id="browsers">
+  <option value="K1">
+  <option value="K2">
+  <option value="L1">
+  <option value="M1">
+  <option value="M2">
+</datalist>
+<br><br>
+    <table>
+        <tr>
+          <th>Dept</th>
+          <th> class</th>
+          <th>place</th>
+        </tr>
+        <tr>
+          <td>CSE</td>
+          <td>k1</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Mech</td>
+          <td>L1</td>
+          <td>Mexico</td>
+        </tr>
+      </table>
+      
+     <aside class="grid-container"> 
+                   
+                 <h1>Week 1</h1>
+                <p>L1. Webpage creation using HTML5
+                    Semantic and Structural Elements</p>
+                 
+    </aside>
+    <aside class="grid-container">
+        <ul>
+          <li><a href="#PersonalInformation">Personal Information</a></li>
+          <li class="second"><a href="#SecurityandLogin">Security and Login</a></li>
+          <li><a href="Logout">Logout</a></li>
+        </ul>
+      
+      </aside>
+       
+      
+      <section>
+        <h1>WWD</h1>
+        <p>This is web development lab<mark>today here we are supposed to create</mark> web page using semantic tags<section>
+    </section>
+
+    <section>
+        <h1>Week 1</h1>
+        <p>L1. Webpage creation using HTML5 <wbr>
+            Semantic and Structural Elements</p>
+    </section>
+        
+    <section>
+        <h1>Week 2</h1>
+        <p>L2. Web Page hosting in AWS</p>
+    </section>
+     
+    <section>
+        <h1>Week 3</h1>
+        <p>JavaScript Lessons</p>
+    </section>
+    <section>
+        <h1>Week 4</h1>
+        <p>Learning about database</p>
+    </section>
+    <br><br><br><br><br><br><br>
+    <h3 id="course">By the end of the course we will learn </h3>
+   <br>
+    <div class="container">
+      <div class="black-box">JavaScript - 90%</div>
+      <div class="gray-box">ReactJs - 70%</div>
+      <div class="green-box">AngularJs - 40%</div>
+    </div>
+    <div class="containers">
+      <div class="item item1">W</div>
+      <div class="item item2">E</div>
+      <div class="item item3">B</div>
+      <div class="item item1">D</div>
+      <div class="item item2">E</div>
+      <div class="item item3">V</div>
+    </div>
+    <footer>
+        <p>Author: Hege Refsnes</p>
+        <p><a href="94818yashwanth@gmail.com">94818yashwanth@gmail.com</a></p>
+    </footer>
+     <script src="./formVal.js"></script>
+  </body>
+</html>
