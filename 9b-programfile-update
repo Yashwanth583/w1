@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX JSON Example</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<h1>  Click here to know more about the Book </h1>
+	<button id="loadBtn">Load Book Details</button>
+	<div id="bookDetails"></div>
+</body>
+</html>
+
+
+scipt.js
+
+$(document).ready(function() {
+	$('#loadBtn').click(function() {
+		$.ajax({
+			url: 'book.json',
+			dataType: 'json',
+			success: function(data) {
+				var details = '';
+				details += '<h2>' + data.title + '</h2>';
+				details += '<p>Author: ' + data.author + '</p>';
+				details += '<p>Year: ' + data.year + '</p>';
+				details += '<p>Publisher: ' + data.publisher + '</p>';
+				details += '<p>Pages: ' + data.pages + '</p>';
+				details += '<p>Language: ' + data.language + '</p>';
+				$('#bookDetails').html(details);
+			}
+		});
+	});
+})
+
+
+books.json
+
+{
+	"title": "The Great Gatsby",
+	"author": "F. Scott Fitzgerald",
+	"year": 1925,
+	"publisher": "Charles Scribner's Sons",
+	"pages": 180,
+	"language": "English"
+}
