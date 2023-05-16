@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%!
+int find_factorial(int n)
+{
+	if(n==0)
+		return 1;
+	return n*find_factorial(n-1);
+}
+%>
+<%
+String inp=request.getParameter("num");
+if(inp!=null)
+{
+	int px=Integer.parseInt(inp);
+	int fact=find_factorial(px);
+	out.println("<h1>Factorial = " + fact+"</h1");
+}
+%>
+
+</body>
+</html>
+
+Index.html:-
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Factorial of a Number</title>
+<style>
+form{
+border:1px solid black;
+margin:15% 35%;
+padding:2%;
+
+}
+</style>
+</head>
+<body>
+<form action="factorial.jsp">
+<h1>Factorial Calculator</h1>
+Enter a number : <input type="number" name="num"/><br><br>
+<input type="submit" value="submit"/>
+</form>
+</body>
+</html>
+
