@@ -1,0 +1,97 @@
+Loginservlet.java:-
+
+package com.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
+import javax.servlet.http.HttpServletResponse;
+
+
+
+public class loginservlet extends HttpServlet {
+
+protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{ 
+
+	PrintWriter pw =res.getWriter();
+	res.setContentType("text/html");
+	String name= req.getParameter("username");
+	String pwd = req.getParameter("userpass");
+	boolean status=false;
+	
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/nitin?useSSL=false","root","Nitin@007");
+		
+		java.sql.PreparedStatement ps = connection.prepareStatement("select * from `nitin.my` where name = ? and password =?;");
+		ps.setString(1, name);
+		ps.setString(2, pwd);
+		System.out.println(ps);
+		ResultSet rs=ps.executeQuery();
+		status=rs.next();
+		connection.close();
+	}
+	catch(SQLException | ClassNotFoundException e) {
+		System.out.println(e);
+	}
+	
+	if(status) {
+		pw.print("<p style=color:green>welcome "+name+"</p>");
+	}
+	else {
+		pw.print("<p style=color:green>Username and Password valid</p>");
+	}
+	
+	
+	}
+
+protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{ 
+doGet(req,res);
+}
+}
+
+Index.html:-
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="login">
+<h2>Login</h2><br><br>
+Name: <input type="text" name="username"><br><br>
+Password: <input type="password" name="userpass"><br><br>
+<input type="submit" value="Login">
+</form>
+</body>
+</html>
+
+Web.xml:-
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>ServletRequest</display-name>
+  <welcome-file-list>
+   
+    <welcome-file>index.html</welcome-file>
+    
+  </welcome-file-list>
+  <servlet>
+   <servlet-name>abc</servlet-name>
+   <servlet-class>com.servlet.loginservlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>abc</servlet-name>
+   <url-pattern>/login</url-pattern>
+</servlet-mapping>
+</web-app>
